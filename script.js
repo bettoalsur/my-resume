@@ -32,3 +32,9 @@ containerTitles.forEach(title => {
     });
 });
 
+function sendMessage() {
+    let mensagem = "Olá Alberto, ";
+    var wapMes = encodeURIComponent(mensagem);
+    var prep = "https://wa.me/+5511994253957?text=";
+    window.open(prep + wapMes);
+}
