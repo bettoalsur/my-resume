@@ -1,17 +1,34 @@
 
-function clickPhoto() {
+const sidebar = document.querySelector(".sidebar");
+const containers = [...document.querySelectorAll(".container")];
+const containerTitles = [...document.querySelectorAll(".container > span")];
+
+function clickToggle() {
     if (window.innerWidth > 750) return;
 
-    document.querySelector(".sidebar").classList.toggle("open");
+    if (sidebar.classList.contains("open")) {
+        containers.forEach(container => container.classList.remove("active"));
+    }
+
+    sidebar.classList.toggle("open");
 }
 
-/* 
-function clickContact() {
-    if (window.innerWidth >= 750) return;
+containerTitles.forEach(title => {
+    title.addEventListener("click", (e) => {
 
-    document.querySelector(".sidebar").classList.add("open");
-    document.querySelector(".contato").classList.toggle("vissible");
+        if (window.innerWidth > 750) return;
 
+        const title = e.currentTarget;
+        const container = title.parentNode;
 
+        if (!sidebar.classList.contains("open")) {
+            sidebar.classList.add("open");
+        }
 
-} */
+        containers.forEach( obj => {
+            if (obj != container) obj.classList.remove("active");
+        } );
+        container.classList.toggle("active");
+    });
+});
+
