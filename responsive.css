@@ -39,7 +39,7 @@
     }
 
     .sidebar img {
-        margin-top: 20px;
+        margin-top: 24px;
         filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, 0.7) );
         -webkit-filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, 0.7) );
 
@@ -90,16 +90,6 @@
         -webkit-transform: translateX(190px);
     }
 
-    .sidebar > .icon-space ion-icon {
-        transition: all var(--animationTime);
-        -webkit-transition: all var(--animationTime);
-    }
-
-    .sidebar.open > .icon-space ion-icon {
-        transform: rotateZ(-45deg);
-        -webkit-transform: rotateZ(-45deg);
-    }
-
     .sidebar:not(.open) .container:not(.active) > span .icon-space:nth-child(1),
     .sidebar .container:not(.active) > span .icon-space:nth-child(1) {
         width: 0px;
@@ -125,7 +115,6 @@
         width: 0px;
         opacity: 0;
         font-size: 0px;
-        overflow: hidden;
 
         margin-left: 15px;
         transform: translateY(-5px);
@@ -156,6 +145,21 @@
 
     .container.active ul {
         height: auto;
+        opacity: 1;
+    }
+
+    .container ul li a span {
+        width: 0px;
+        opacity: 0;
+
+        transition: all var(--animationTime);
+        -webkit-transition: all var(--animationTime);
+
+        overflow: hidden;
+    }
+
+    .container.active ul li a span {
+        width: auto;
         opacity: 1;
     }
 }
